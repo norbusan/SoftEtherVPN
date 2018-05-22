@@ -1,1 +1,2 @@
 usr/lib/softether/vpnbridge
+lib/systemd/system/softether-vpnbridge.service

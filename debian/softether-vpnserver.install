@@ -1,1 +1,2 @@
 usr/lib/softether/vpnserver
+lib/systemd/system/softether-vpnserver.service

@@ -12,4 +12,7 @@ override_dh_auto_clean:
 
 override_dh_auto_install:
 	DESTDIR=debian/tmp make install
+	# install systemd files
+	@mkdir -p debian/tmp/lib/systemd/system/
+	install systemd/*.service debian/tmp/lib/systemd/system/
 
