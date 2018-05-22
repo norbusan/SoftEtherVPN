@@ -7,8 +7,8 @@ LDFLAGS := $(shell dpkg-buildflags --get LDFLAGS)
 %:
 	dh $@ 
 
-#override_dh_auto_clean:
-#	rm -fr Makefile* usr bin tmp src/bin/BuiltHamcoreFiles
+override_dh_auto_clean:
+	rm -fr Makefile* bin tmp src/bin/BuiltHamcoreFiles
 
 override_dh_auto_install:
 	DESTDIR=debian/tmp make install
