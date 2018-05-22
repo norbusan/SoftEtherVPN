@@ -1,0 +1,91 @@
+---
+ systemd/softether-vpnbridge.service |    8 ++++----
+ systemd/softether-vpnclient.service |   10 +++++-----
+ systemd/softether-vpnserver.service |   10 +++++-----
+ 3 files changed, 14 insertions(+), 14 deletions(-)
+
+--- SoftEtherVPN.git.orig/systemd/softether-vpnbridge.service
++++ SoftEtherVPN.git/systemd/softether-vpnbridge.service
+@@ -1,12 +1,12 @@
+ [Unit]
+ Description=SoftEther VPN Bridge
+ After=network.target auditd.service
+-ConditionPathExists=!/opt/vpnbridge/do_not_run
++ConditionPathExists=!/usr/lib/softether/vpnbridge/do_not_run
+ 
+ [Service]
+ Type=forking
+-ExecStart=/opt/vpnbridge/vpnbridge start
+-ExecStop=/opt/vpnbridge/vpnbridge stop
++ExecStart=/usr/lib/softether/vpnbridge/vpnbridge start
++ExecStop=/usr/lib/softether/vpnbridge/vpnbridge stop
+ KillMode=process
+ Restart=on-failure
+ 
+@@ -15,7 +15,7 @@
+ ProtectHome=yes
+ ProtectSystem=full
+ ReadOnlyDirectories=/
+-ReadWriteDirectories=-/opt/vpnbridge
++ReadWriteDirectories=-/usr/lib/softether/vpnbridge
+ CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_BROADCAST CAP_NET_RAW CAP_SYS_NICE CAP_SYS_ADMIN CAP_SETUID
+ 
+ [Install]
+--- SoftEtherVPN.git.orig/systemd/softether-vpnclient.service
++++ SoftEtherVPN.git/systemd/softether-vpnclient.service
+@@ -1,13 +1,13 @@
+ [Unit]
+ Description=SoftEther VPN Client
+ After=network.target auditd.service
+-ConditionPathExists=!/opt/vpnclient/do_not_run
++ConditionPathExists=!/usr/lib/softether/vpnclient/do_not_run
+ 
+ [Service]
+ Type=forking
+-EnvironmentFile=-/opt/vpnclient
+-ExecStart=/opt/vpnclient/vpnclient start
+-ExecStop=/opt/vpnclient/vpnclient stop
++EnvironmentFile=-/usr/lib/softether/vpnclient
++ExecStart=/usr/lib/softether/vpnclient/vpnclient start
++ExecStop=/usr/lib/softether/vpnclient/vpnclient stop
+ KillMode=process
+ Restart=on-failure
+ 
+@@ -16,7 +16,7 @@
+ ProtectHome=yes
+ ProtectSystem=full
+ ReadOnlyDirectories=/
+-ReadWriteDirectories=-/opt/vpnclient
++ReadWriteDirectories=-/usr/lib/softether/vpnclient
+ CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_BROADCAST CAP_NET_RAW CAP_SYS_NICE CAP_SYS_ADMIN CAP_SETUID
+ 
+ [Install]
+--- SoftEtherVPN.git.orig/systemd/softether-vpnserver.service
++++ SoftEtherVPN.git/systemd/softether-vpnserver.service
+@@ -1,13 +1,13 @@
+ [Unit]
+ Description=SoftEther VPN Server
+ After=network.target auditd.service
+-ConditionPathExists=!/opt/vpnserver/do_not_run
++ConditionPathExists=!/usr/lib/softether/vpnserver/do_not_run
+ 
+ [Service]
+ Type=forking
+-EnvironmentFile=-/opt/vpnserver
+-ExecStart=/opt/vpnserver/vpnserver start
+-ExecStop=/opt/vpnserver/vpnserver stop
++EnvironmentFile=-/usr/lib/softether/vpnserver
++ExecStart=/usr/lib/softether/vpnserver/vpnserver start
++ExecStop=/usr/lib/softether/vpnserver/vpnserver stop
+ KillMode=process
+ Restart=on-failure
+ 
+@@ -16,7 +16,7 @@
+ ProtectHome=yes
+ ProtectSystem=full
+ ReadOnlyDirectories=/
+-ReadWriteDirectories=-/opt/vpnserver
++ReadWriteDirectories=-/usr/lib/softether/vpnserver
+ CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_BROADCAST CAP_NET_RAW CAP_SYS_NICE CAP_SYS_ADMIN CAP_SETUID
+ 
+ [Install]
