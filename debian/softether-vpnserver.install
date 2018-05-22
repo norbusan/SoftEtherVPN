@@ -1,3 +1,1 @@
-#! /usr/bin/dh-exec
-debian/bin/vpnserver usr/bin/
-usr/vpnserver opt/
+usr/lib/softether/vpnserver

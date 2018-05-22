@@ -11,5 +11,5 @@ LDFLAGS := $(shell dpkg-buildflags --get LDFLAGS)
 #	rm -fr Makefile* usr bin tmp src/bin/BuiltHamcoreFiles
 
 override_dh_auto_install:
-	make install
+	DESTDIR=debian/tmp make install
 

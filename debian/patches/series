@@ -1,1 +1,3 @@
+0001-support-DESTDIR-on-installation.patch
+0002-create-all-necessary-directories-on-installation.patch
 update-makefiles
